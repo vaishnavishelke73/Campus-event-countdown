@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#635bff">
+  <meta name="description" content="Track campus events, exams and assignment deadlines with Campus Event Countdown.">
+  <title>Campus Event Countdown 🎓</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Campus Countdown home">
+      <span class="brand-icon">🎓</span>
+      <span>Campus<span class="brand-accent">Countdown</span></span>
+    </a>
+    <span class="local-tag">Your campus, on track</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">PLAN • PREPARE • ACHIEVE</p>
+        <h1>Make every moment <span>count.</span></h1>
+        <p class="hero-copy">Keep your college events, exams and assignments organised in one place.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">📅<span>✨</span></div>
+    </section>
+
+    <section class="stats" aria-label="Your progress">
+      <article class="stat-card"><span class="stat-icon purple">📌</span><div><strong id="totalCount">0</strong><small>Total items</small></div></article>
+      <article class="stat-card"><span class="stat-icon orange">⏳</span><div><strong id="upcomingCount">0</strong><small>Upcoming</small></div></article>
+      <article class="stat-card"><span class="stat-icon green">🏆</span><div><strong id="completedCount">0</strong><small>Completed</small></div></article>
+    </section>
+
+    <section class="content-grid">
+      <aside class="panel form-panel">
+        <div class="section-heading">
+          <div><p class="eyebrow">STAY ORGANISED</p><h2>Add a new item</h2></div>
+          <span class="heading-icon">✍️</span>
+        </div>
+        <form id="itemForm">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" maxlength="70" placeholder="e.g. Mathematics exam" required>
+
+          <div class="field-row">
+            <div>
+              <label for="type">Type</label>
+              <select id="type" name="type">
+                <option value="Event">Event</option>
+                <option value="Task">Task</option>
+              </select>
+            </div>
+            <div>
+              <label for="category">Category</label>
+              <select id="category" name="category">
+                <option>College</option><option>Exam</option><option>Assignment</option>
+                <option>Workshop</option><option>Festival</option><option>Personal</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div>
+              <label for="date">Date</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div>
+              <label for="time">Time</label>
+              <input id="time" name="time" type="time" value="09:00">
+            </div>
+          </div>
+
+          <label for="description">Notes <span class="optional">(optional)</span></label>
+          <textarea id="description" name="description" rows="3" maxlength="180" placeholder="Add a short note or preparation reminder..."></textarea>
+          <button class="primary-btn" type="submit"><span>＋</span> Add to countdown</button>
+          <p class="privacy-note">🔒 Your items are saved on this device.</p>
+        </form>
+      </aside>
+
+      <section class="panel list-panel">
+        <div class="section-heading list-heading">
+          <div><p class="eyebrow">YOUR SCHEDULE</p><h2>Events &amp; tasks</h2></div>
+          <span class="count-pill" id="visibleCount">0 items</span>
+        </div>
+        <div class="toolbar">
+          <div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search events or tasks..." aria-label="Search items"></div>
+          <div class="filter-row">
+            <select id="typeFilter" aria-label="Filter by type"><option value="All">All types</option><option>Event</option><option>Task</option></select>
+            <select id="statusFilter" aria-label="Filter by status"><option value="Active">Upcoming</option><option value="Completed">Completed</option><option value="All">All status</option></select>
+          </div>
+        </div>
+        <div id="itemList" class="item-list" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state">
+          <div>🗓️</div><h3>Your schedule starts here</h3><p>Add an event or task to see its countdown.</p>
+        </div>
+      </section>
+    </section>
+    <footer>Made with 💜 for campus life <span>•</span> <strong>Author: Vaishnavi Shelke</strong></footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>
